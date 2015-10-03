@@ -1,11 +1,14 @@
 
 public class Biker {
     
-    private Coordinate bikerCoordinate; //Biker position
+
+    private long WAIT_TIME_MILLIS = 10;
+
+    private Coordinate bikerCoordinate;     //Biker position
 
     private BikerAI ai;
     
-    private boolean isAlive;     //True if the biker is still alive
+    private boolean isAlive;                //True if the biker is still alive
 
     
     
@@ -20,11 +23,17 @@ public class Biker {
         this.isAlive = true; //alive to start
     }
     
-    //TODO:Implement
+    /** retrieves the next move of the biker, from it's AI. 
+     * This should implement a time limit in the future!
+     * @param board : the current board, 
+     *        aligned such that the bike has been previously moving upwards
+     * @return nextAction : the decision of the Biker's AI in terms of direction to move
+     */
     public BikerActions getNextMove(BoardItem[][] board){
-        return BikerActions.FORWARDS;
+        BikerActions nextAction = ai.getNextAction(board);
+        return nextAction;
     } 
-    
+ 
     
     /**
      * Updates biker's coordinate
@@ -42,6 +51,7 @@ public class Biker {
     public Coordinate getCoordinate() {
         return bikerCoordinate;
     }
+    
     
     /**
      * sets the status of the Biker to dead
