@@ -3,5 +3,4 @@ public interface BikerAI {
     
     public void getNextAction(BikerActions action);
     
-    System.out.println("hi everyone!");
 }
