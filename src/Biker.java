@@ -18,7 +18,7 @@ public class Biker {
      * @param ai the biker's AI
      */
     public Biker(int xPos,int yPos, BikerAI ai){
-        setCoordinate(xPos, yPos);
+        coordinate(xPos, yPos);
         this.ai = ai;
         this.isAlive = true; //alive to start
     }
@@ -40,7 +40,7 @@ public class Biker {
      * @param x X coordinate
      * @param y Y coordinate
      */
-    public void setCoordinate(int x, int y) {
+    public void coordinate(int x, int y) {
         bikerCoordinate.x = x;
         bikerCoordinate.y = y;
     }
@@ -48,7 +48,7 @@ public class Biker {
     /**
      * @return the bikers current coordinate
      */
-    public Coordinate getCoordinate() {
+    public Coordinate coordinate() {
         return bikerCoordinate;
     }
     
