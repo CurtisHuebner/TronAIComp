@@ -12,7 +12,8 @@
 hs_err_pid*
 /bin/
 
-# Morten stuff
+# Morten files
 mKalsAI.java
 
-
+# Erik files
+.DS_Store
