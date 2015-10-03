@@ -56,15 +56,15 @@ public class Biker {
     /**
      * sets the status of the Biker to dead
      */
-    public void murder() {
-        isAlive = false;
+    public void alive(boolean isAlive) {
+        this.isAlive = isAlive;
     }
     
     /**
      * getter for life status of Biker
      * @return true if biker is alive.
      */
-    public boolean isAlive(){
+    public boolean alive(){
         return isAlive;
     }
 }
