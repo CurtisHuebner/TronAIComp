@@ -18,7 +18,7 @@ public class Biker {
         this.Xposition = Xpos;
         this.Yposition = Ypos;
         this.ai = ai;
-        this.status = true; //alive to start
+        this.isAlive = true; //alive to start
     }
     
     //TODO:Implement

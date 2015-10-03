@@ -1,4 +1,8 @@
 
 public enum BoardItem {
-    YOU,ALLY,ENEMY,STREAK,BLANK
+    YOU,
+    ALLY,
+    ENEMY,
+    STREAK,
+    BLANK
 }
