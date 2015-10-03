@@ -6,21 +6,11 @@ public class TronGame {
     
     //TODO: implement
     public TronGame(int boardSize, BikerAI[] players){
-        Random generator = new Random();
         
-        board  = new BoardItem[boardSize][boardSize];
-        bikers = new Biker[players.length];
+     
         
         
         setupBoard(boardSize);
-        
-        
-        //Initialize bikers
-        for (int i = 0;i < players.length ;i++){
-            int posX = generator.nextInt(boardSize);
-            int posY = generator.nextInt(boardSize);
-            bikers[i] = new Biker(posX,posY,players[i]);
-        }
         
     }
     /**
@@ -40,7 +30,7 @@ public class TronGame {
         }
         
         //Fill the board edges with streaks to act as walls
-        //TODO: Make a faster implementation
+        //TODO: Make a faster implementation in a separate method
         for (int i = 0;i < boardSize;i++){
             for (int j = 0;j < boardSize;j++){
                 
@@ -49,8 +39,41 @@ public class TronGame {
                     board[i][j] = BoardItem.STREAK;
                 }
             }
-        }
+        }        
     }
+    
+    private void placePlayers(BikerAI[] players) throws Exception{
+        if (board == null){
+            throw new Exception("You are an idiot");
+        }
+        
+        Random generator = new Random();
+        bikers = new Biker[players.length];
+        
+        //Initialize bikers to plausible positions
+        for (int i = 0;i < players.length ;i++){
+            int posX = generator.nextInt(board.length);
+            int posY = generator.nextInt(board.length);
+            bikers[i] = new Biker(posX,posY,players[i]);
+        }
+        
+    }
+    
+    
+    /**
+     * Check to see if any of the players
+     * are in invalid positions where an
+     * in valid position is defined as being 
+     * where a streak or another player should be. 
+     * 
+     * @return the index of the first player
+     * in an invalid position or -1 if all 
+     * players are in valid positions
+     */
+    private int checkForInvalidPos(){
+        return 0; //TODO Not Implemented
+    }
+    
     
     //TODO: implement
     public void tick(){
