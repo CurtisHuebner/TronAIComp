@@ -12,12 +12,8 @@ public class TronGame {
         bikers = new Biker[players.length];
         
         
-        //Initialize the board
-        for (int i = 0;i < boardSize;i++){
-            for (int j = 0;j < boardSize;j++){
-                board[i][j] = BoardItem.BLANK;
-            }
-        }
+        
+        
         
         //Initialize bikers
         for (int i = 0;i < players.length ;i++){
@@ -26,6 +22,27 @@ public class TronGame {
             bikers[i] = new Biker(posX,posY,players[i]);
         }
         
+    }
+    
+    private void setupBoard(int boardSize){
+        //Initialize the board to blanks
+        for (int i = 0;i < boardSize;i++){
+            for (int j = 0;j < boardSize;j++){
+                board[i][j] = BoardItem.BLANK;
+            }
+        }
+        
+        //Fill the board edges with blanks
+        //TODO: Make a faster implementation
+        for (int i = 0;i < boardSize;i++){
+            for (int j = 0;j < boardSize;j++){
+                
+                //Check to see if the
+                if (i == 0 || (i == boardSize - 1) || j == 0 || (j == boardSize - 1)){
+                    
+                }
+            }
+        }
     }
     
     //TODO: implement
