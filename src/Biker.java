@@ -35,6 +35,8 @@ public class Biker {
     } 
  
     
+    
+    
     /**
      * Updates biker's coordinate
      * @param x X coordinate
