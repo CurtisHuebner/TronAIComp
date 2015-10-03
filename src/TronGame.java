@@ -10,10 +10,13 @@ public class TronGame {
     //TODO: implement
     public TronGame(int boardSize, BikerAI[] players){
         
-     
-        
-        
         setupBoard(boardSize);
+        try {
+            placePlayers(players);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         
     }
     /**
