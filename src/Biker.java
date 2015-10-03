@@ -2,6 +2,9 @@
 public class Biker {
     
 
+    //TODO: Heading, (necessary to know which direction in which to move them)
+    
+    
     private long WAIT_TIME_MILLIS = 10;
 
     private Coordinate bikerCoordinate;     //Biker position
