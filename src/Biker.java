@@ -1,6 +1,7 @@
 
 public class Biker {
     
+    private long WAIT_TIME_MILLIS = 10;
     //Biker position
     public int Xposition;
     public int Yposition;
@@ -11,7 +12,7 @@ public class Biker {
     
     /** Constructs a Biker object
      * @param Xpos starting position in x
-     * @param Ypos starting postition in y
+     * @param Ypos starting position in y
      * @param ai the biker's AI
      */
     public Biker(int Xpos,int Ypos, BikerAI ai){
@@ -21,9 +22,16 @@ public class Biker {
         this.isAlive = true; //alive to start
     }
     
-    //TODO:Implement
+    /** retrieves the next move of the biker, from it's AI. 
+     * This should implement a time limit in the future!
+     * @param board : the current board, 
+     *        aligned such that the bike has been previously moving upwards
+     * @return nextAction : the decision of the Biker's AI in terms of direction to move
+     */
     public BikerActions getNextMove(BoardItem[][] board){
-        return BikerActions.FORWARDS;
+        
+        BikerActions nextAction = ai.getNextAction(board);
+        return nextAction;
     }
     
     /**
