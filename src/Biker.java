@@ -11,7 +11,10 @@ public class Biker {
     
     //TODO:Implement
     public Biker(int Xpos,int Ypos, BikerAI ai){
-        
+        this.Xposition = Xpos;
+        this.Yposition = Ypos;
+        this.ai = ai;
+        this.status = true;
     }
     
     //TODO:Implement
