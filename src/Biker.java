@@ -8,9 +8,8 @@ public class Biker {
 
     private BikerAI ai;
     
-    private boolean isAlive;                //True if the biker is still alive
+    private boolean isAlive = true;                //True if the biker is still alive
 
-    
     
     /** Constructs a Biker object
      * @param xPos starting position in x
@@ -58,15 +57,15 @@ public class Biker {
     /**
      * sets the status of the Biker to dead
      */
-    public void alive(boolean isAlive) {
-        this.isAlive = isAlive;
+    public void murder() {
+        isAlive = false;
     }
     
     /**
      * getter for life status of Biker
      * @return true if biker is alive.
      */
-    public boolean alive(){
+    public boolean isAlive(){
         return isAlive;
     }
 }
