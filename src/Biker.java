@@ -18,7 +18,7 @@ public class Biker {
     public BikerActions getNextMove(BoardItem[][] board){
         return BikerActions.FORWARDS;
     }
-
+    
     public boolean isDead(){
         return !status;
     }
