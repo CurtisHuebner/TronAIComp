@@ -1,22 +1,21 @@
 
 public class Biker {
     
-    //Biker position
-    public int Xposition;
-    public int Yposition;
+    private Coordinate bikerCoordinate; //Biker position
+
     private BikerAI ai;
     
-    //True if the biker is still alive
-    private boolean isAlive;
+    private boolean isAlive;     //True if the biker is still alive
+
+    
     
     /** Constructs a Biker object
-     * @param Xpos starting position in x
-     * @param Ypos starting postition in y
+     * @param xPos starting position in x
+     * @param yPos starting position in y
      * @param ai the biker's AI
      */
-    public Biker(int Xpos,int Ypos, BikerAI ai){
-        this.Xposition = Xpos;
-        this.Yposition = Ypos;
+    public Biker(int xPos,int yPos, BikerAI ai){
+        setCoordinate(xPos, yPos);
         this.ai = ai;
         this.isAlive = true; //alive to start
     }
@@ -24,6 +23,24 @@ public class Biker {
     //TODO:Implement
     public BikerActions getNextMove(BoardItem[][] board){
         return BikerActions.FORWARDS;
+    } 
+    
+    
+    /**
+     * Updates biker's coordinate
+     * @param x X coordinate
+     * @param y Y coordinate
+     */
+    public void setCoordinate(int x, int y) {
+        bikerCoordinate.x = x;
+        bikerCoordinate.y = y;
+    }
+    
+    /**
+     * @return the bikers current coordinate
+     */
+    public Coordinate getCoordinate() {
+        return bikerCoordinate;
     }
     
     /**
