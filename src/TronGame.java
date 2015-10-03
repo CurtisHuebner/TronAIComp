@@ -5,7 +5,7 @@ public class TronGame {
     
     //TODO: implement
     public TronGame(int boardSize, BikerAI[] players){
-        
+        System.out.println("wassssup");
     }
     
     //TODO: implement
