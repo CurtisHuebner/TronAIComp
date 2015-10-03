@@ -1,6 +1,9 @@
 import java.util.Random;
 
 public class TronGame {
+    
+    //Fst index is X co-ord
+    //Snd index is y co-ord
     private BoardItem[][] board;
     private Biker[] bikers;
     
@@ -42,8 +45,16 @@ public class TronGame {
         }        
     }
     
+    /**
+     * Places the players on the board in random locations
+     * Goes into an infinite loop if there is no way to place
+     * all players on the board
+     * @param players
+     * @throws Exception
+     */
     private void placePlayers(BikerAI[] players) throws Exception{
         if (board == null){
+            //Throw this if the board didn't get initialized
             throw new Exception("You are an idiot");
         }
         
@@ -55,6 +66,19 @@ public class TronGame {
             int posX = generator.nextInt(board.length);
             int posY = generator.nextInt(board.length);
             bikers[i] = new Biker(posX,posY,players[i]);
+        }
+        
+        int invalidBike = checkForInvalidPos();
+        
+        while (invalidBike != -1){
+            int posX = generator.nextInt(board.length);
+            int posY = generator.nextInt(board.length);
+            
+            //reset problem bike to a new position
+            bikers[invalidBike].coordinate(posY, posY);
+            
+            //Check again for problems
+            invalidBike = checkForInvalidPos();
         }
         
     }
@@ -71,7 +95,28 @@ public class TronGame {
      * players are in valid positions
      */
     private int checkForInvalidPos(){
-        return 0; //TODO Not Implemented
+      
+      //Verify that no bikers are colliding with each-other.
+      for (int i = 0;i < bikers.length;i++){
+          for (Biker potentialCollision : bikers){
+              boolean xCond = bikers[i].coordinate().x == potentialCollision.coordinate().x;
+              boolean yCond = bikers[i].coordinate().y == potentialCollision.coordinate().y;
+              if (xCond == yCond)
+                  return i;
+          }
+      }
+      
+      //Verify that no bikers are in walls
+      for (int i = 0;i < bikers.length;i++){
+           int x = bikers[i].coordinate().x;
+           int y = bikers[i].coordinate().y;
+           
+           if (board[x][y] == BoardItem.STREAK)
+               return i;
+      }
+      
+      //else
+      return -1;
     }
     
     
