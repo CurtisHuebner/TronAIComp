@@ -1,4 +1,4 @@
 
-public enum BoardItems {
+public enum BoardItem {
     YOU,ALLY,ENEMY,STREAK,BLANK
 }
