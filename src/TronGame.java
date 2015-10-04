@@ -5,18 +5,13 @@ public class TronGame {
     //Fst index is X co-ord
     //Snd index is y co-ord
     private BoardItem[][] board;
-    private Biker[] bikers;
+    private Biker[ ] bikers;
     
     //TODO: implement
     public TronGame(int boardSize, BikerAI[] players){
         
         setupBoard(boardSize);
-        try {
-            placePlayers(players);
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        placePlayers(players);
         
     }
     /**
@@ -55,10 +50,10 @@ public class TronGame {
      * @param players
      * @throws Exception
      */
-    private void placePlayers(BikerAI[] players) throws Exception{
+    private void placePlayers(BikerAI[] players){
         if (board == null){
             //Throw this if the board didn't get initialized
-            throw new Exception("You are an idiot");
+            throw new RuntimeException("You are an idiot");
         }
         
         Random generator = new Random();
